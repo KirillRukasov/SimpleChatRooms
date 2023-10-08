@@ -13,6 +13,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimpleChatRooms.Models", "S
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimpleChatRooms.Data", "SimoleChatRooms.Data\SimpleChatRooms.Data.csproj", "{EA53A93B-5473-43EB-9CE6-DBFCE5F852FC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleChatRooms.Test", "SimpleChatRooms.Test\SimpleChatRooms.Test.csproj", "{F1AFCB1A-532B-497A-B5F4-8AD3C333059C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleChatRooms.Interfaces", "SimpleChatRooms.Interfaces\SimpleChatRooms.Interfaces.csproj", "{C60E7A00-3C8C-4923-BF0C-F637FEA09084}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -31,6 +35,14 @@ Global
 		{EA53A93B-5473-43EB-9CE6-DBFCE5F852FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EA53A93B-5473-43EB-9CE6-DBFCE5F852FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EA53A93B-5473-43EB-9CE6-DBFCE5F852FC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F1AFCB1A-532B-497A-B5F4-8AD3C333059C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F1AFCB1A-532B-497A-B5F4-8AD3C333059C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F1AFCB1A-532B-497A-B5F4-8AD3C333059C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F1AFCB1A-532B-497A-B5F4-8AD3C333059C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C60E7A00-3C8C-4923-BF0C-F637FEA09084}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C60E7A00-3C8C-4923-BF0C-F637FEA09084}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C60E7A00-3C8C-4923-BF0C-F637FEA09084}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C60E7A00-3C8C-4923-BF0C-F637FEA09084}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

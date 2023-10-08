@@ -14,6 +14,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\SimoleChatRooms.Data\SimpleChatRooms.Data.csproj" />
+    <ProjectReference Include="..\SimpleChatRooms.Interfaces\SimpleChatRooms.Interfaces.csproj" />
   </ItemGroup>
 
   <ItemGroup>
