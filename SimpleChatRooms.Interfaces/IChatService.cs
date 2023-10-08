@@ -11,5 +11,7 @@ namespace SimpleChatRooms.Interfaces
     {
         Task<Chat> GetChatByNameAsync(string chatName);
         Task<Chat> CreateChatAsync(string chatName, int userId);
+        Task JoinChatAsync(string chatName, int userId);
+        Task SendMessageAsync(string chatName, int userId, string messageContent);
     }
 }

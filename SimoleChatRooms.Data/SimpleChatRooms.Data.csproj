@@ -11,6 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\SimpleChatRooms.Interfaces\SimpleChatRooms.Interfaces.csproj" />
     <ProjectReference Include="..\SimpleChatRooms.Models\SimpleChatRooms.Models.csproj" />
   </ItemGroup>
 

@@ -26,10 +26,16 @@ namespace SimpleChatRooms.Test.Controllers
         public async Task Post_CreatesChatSuccessfully_ReturnsCreatedChat()
         {
             var testChat = TestData.GetTestChat();
+            var chatCreationRequest = new ChatCreationRequest
+            {
+                ChatName = testChat.Name,
+                UserId = testChat.CreatorUserId
+            };
+
             _mockChatService.Setup(service => service.CreateChatAsync(testChat.Name, It.IsAny<int>()))
                             .ReturnsAsync(testChat);
 
-            var result = await _controller.CreateChat(testChat.Name, testChat.CreatorUserId);
+            var result = await _controller.CreateChat(chatCreationRequest);
 
             var actionResult = Assert.IsType<ActionResult<Chat>>(result);
             var returnValue = Assert.IsType<Chat>(actionResult.Value);
@@ -40,10 +46,16 @@ namespace SimpleChatRooms.Test.Controllers
         public async Task Post_WithExistingChatName_ReturnsBadRequest()
         {
             var testChat = TestData.GetTestChat();
+            var chatCreationRequest = new ChatCreationRequest
+            {
+                ChatName = testChat.Name,
+                UserId = testChat.CreatorUserId
+            };
+
             _mockChatService.Setup(service => service.CreateChatAsync(testChat.Name, It.IsAny<int>()))
                             .ThrowsAsync(new InvalidOperationException("Chat with this name already exists."));
 
-            var result = await _controller.CreateChat(testChat.Name, testChat.CreatorUserId);
+            var result = await _controller.CreateChat(chatCreationRequest);
 
             Assert.IsType<BadRequestObjectResult>(result);
         }

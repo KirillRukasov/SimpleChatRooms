@@ -12,5 +12,6 @@ namespace SimpleChatRooms.Models
         public string Name { get; set; }
         public int CreatorUserId { get; set; }
         public List<Message> Messages { get; set; }
+        public virtual ICollection<ChatParticipant> ChatParticipations { get; set; } = new List<ChatParticipant>();
     }
 }
