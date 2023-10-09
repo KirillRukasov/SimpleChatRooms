@@ -38,7 +38,8 @@ namespace SimpleChatRooms.Test.Controllers
             var result = await _controller.CreateChat(chatCreationRequest);
 
             var actionResult = Assert.IsType<ActionResult<Chat>>(result);
-            var returnValue = Assert.IsType<Chat>(actionResult.Value);
+            var createdAtActionResult = Assert.IsType<CreatedAtActionResult>(actionResult.Result);
+            var returnValue = Assert.IsType<Chat>(createdAtActionResult.Value);
             Assert.Equal(testChat.Name, returnValue.Name);
         }
 
@@ -57,7 +58,9 @@ namespace SimpleChatRooms.Test.Controllers
 
             var result = await _controller.CreateChat(chatCreationRequest);
 
-            Assert.IsType<BadRequestObjectResult>(result);
+            var actionResult = Assert.IsType<ActionResult<Chat>>(result);
+
+            Assert.IsType<BadRequestObjectResult>(actionResult.Result);
         }
 
         [Fact]
@@ -68,7 +71,8 @@ namespace SimpleChatRooms.Test.Controllers
 
             var result = await _controller.GetChatByName("NonExistingChat");
 
-            Assert.IsType<NotFoundResult>(result);
+            var actionResult = Assert.IsType<ActionResult<Chat>>(result);
+            Assert.IsType<NotFoundObjectResult>(actionResult.Result);
         }
 
         [Fact]
@@ -82,7 +86,8 @@ namespace SimpleChatRooms.Test.Controllers
 
             var result = await _controller.JoinChat(chatName, userId);
 
-            Assert.IsType<OkResult>(result);
+            var actionResult = Assert.IsType<ActionResult<Chat>>(result);
+            var okResult = Assert.IsType<OkResult>(actionResult.Result);
         }
 
         [Fact]
@@ -93,7 +98,8 @@ namespace SimpleChatRooms.Test.Controllers
 
             var result = await _controller.JoinChat("NonExistingChat", 1);
 
-            Assert.IsType<NotFoundObjectResult>(result);
+            var actionResult = Assert.IsType<ActionResult<Chat>>(result);
+            Assert.IsType<NotFoundObjectResult>(actionResult.Result);
         }
 
         [Fact]

@@ -7,9 +7,9 @@ namespace SimpleChatRooms.Services
 {
     public class ChatService : IChatService
     {
-        private readonly SimpleChatRoomsDbContext _context;
+        private readonly ISimpleChatRoomsDbContext _context;
 
-        public ChatService(SimpleChatRoomsDbContext context)
+        public ChatService(ISimpleChatRoomsDbContext context)
         {
             _context = context;
         }

@@ -13,5 +13,7 @@ namespace SimpleChatRooms.Interfaces
         DbSet<Chat> Chats { get; set; }
         DbSet<ChatParticipant> ChatParticipants { get; set; }
         DbSet<Message> Messages { get; set; }
+
+        Task<int> SaveChangesAsync(CancellationToken cancellationToken = default);
     }
 }
