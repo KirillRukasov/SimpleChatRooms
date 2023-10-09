@@ -1,13 +1,20 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using SimpleChatRooms.Data;
+using SimpleChatRooms.Hubs;
+using SimpleChatRooms.Interfaces;
+using SimpleChatRooms.Services;
 using System;
 
 var builder = WebApplication.CreateBuilder(args);
 
 string connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
-builder.Services.AddDbContext<SimpleChatRoomsDbContext>(option =>
+builder.Services.AddDbContext<ISimpleChatRoomsDbContext, SimpleChatRoomsDbContext>(option =>
     option.UseSqlServer(connectionString));
+
+builder.Services.AddScoped<IChatService, ChatService>();
+
+builder.Services.AddSignalR();
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -25,8 +32,12 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-app.UseAuthorization();
+app.UseRouting();
 
-app.MapControllers();
+app.MapHub<ChatHub>("/chatHub");
+
+app.MapControllerRoute(
+    name: "default",
+    pattern: "api/{controller}/{action=Index}/{id?}");
 
 app.Run();
